@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="padding">8dp</dimen>
+    <dimen name="small_padding">12dp</dimen>
+    <dimen name="medium_padding">16dp</dimen>
+    <dimen name="medium_text_size">16sp</dimen>
+    <dimen name="large_padding">20dp</dimen>
+    <dimen name="extra_large_padding">24dp</dimen>
+    <dimen name="width_size">150dp</dimen>
+    <dimen name="width_double_size">300dp</dimen>
+    <dimen name="height_sizes">100dp</dimen>
+    <dimen name="size_200">200dp</dimen>
+    <dimen name="no_dp">0dp</dimen>
+</resources>

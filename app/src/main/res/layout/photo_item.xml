@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="com.example.optuspoc.model.ModelPhoto" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding">
+
+        <View
+            android:id="@+id/equipmentDivider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/darkGrey"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/list_gradient"
+            android:padding="@dimen/medium_padding">
+
+            <TextView
+                android:id="@+id/imageTitle"
+                android:layout_width="@dimen/no_dp"
+                android:layout_height="wrap_content"
+                android:text="@{data.title!=null?data.title:`No Title`}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/medium_text_size"
+                app:layout_constraintBottom_toBottomOf="@id/listImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/listImage"
+                app:layout_constraintTop_toTopOf="@id/listImage" />
+
+            <ImageView
+                android:id="@+id/listImage"
+                android:layout_width="@dimen/width_size"
+                android:layout_height="@dimen/height_sizes"
+                android:scaleType="fitCenter"
+                app:layout_constraintStart_toEndOf="@id/imageTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

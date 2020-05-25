@@ -1,5 +1,6 @@
 package com.example.optuspoc.networkLayer
 
+import com.example.optuspoc.model.ModelPhoto
 import com.example.optuspoc.model.ModelUserMaster
 import com.example.optuspoc.utility.Constants
 import retrofit2.http.GET
@@ -15,4 +16,10 @@ interface ApiInterface {
      */
     @GET(Constants.GET_USER_MASTER)
     fun getUserMasterList(): Call<ArrayList<ModelUserMaster>>
+
+    /**
+     * This method is getting for list's of photos from server
+     * */
+    @GET(Constants.GET_ALBUM)
+    fun getPhotosList(): Call<ArrayList<ModelPhoto>>
 }

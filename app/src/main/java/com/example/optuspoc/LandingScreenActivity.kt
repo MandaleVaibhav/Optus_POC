@@ -1,24 +1,33 @@
 package com.example.optuspoc
 
-import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.example.optuspoc.view.UserInformationFragment
 
 class LandingScreenActivity : AppCompatActivity() {
+
+    var tag: String = UserInformationFragment::class.java.name
+    var name = UserInformationFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.landing_screen)
+        showFragment(UserInformationFragment(), tag)
     }
 
-    /*Method to handle the UI on orientation change of device*/
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show()
+    /**
+     * Calling fragment
+     * */
+    fun showFragment(name: Fragment, tag: String) {
+        val fragmentManager = supportFragmentManager
+        val fragmentPopped = fragmentManager.popBackStackImmediate(tag, 0)
+        if (!fragmentPopped) {
+            val fragmentTransaction =
+                fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.fragment_container, name, tag)
+            fragmentTransaction.addToBackStack(tag)
+            fragmentTransaction.commit()
         }
     }
 }
