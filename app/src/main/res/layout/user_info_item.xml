@@ -13,52 +13,67 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/skyBlue"
-        android:padding="@dimen/large_padding">
+        android:background="#C2A200"
+        android:padding="@dimen/small_padding">
 
-        <TextView
-            android:id="@+id/id"
-            android:layout_width="@dimen/no_dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@{`ID: `.concat(data.id)}"
-            android:textColor="@color/white"
-            android:textSize="@dimen/medium_text_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="@dimen/divider_height"
+            app:cardElevation="@dimen/divider_height"
+            app:cardMaxElevation="@dimen/divider_height">
 
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="@dimen/no_dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding"
-            android:text="@{data.name!=null?`Name: `.concat(data.name):`No Name`}"
-            android:textColor="@color/white"
-            android:textSize="@dimen/medium_text_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/id" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/list_gradient"
+                android:padding="@dimen/medium_padding">
 
-        <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="@dimen/no_dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding"
-            android:text="@{`email: `.concat(data.email!=null?data.email:`No Email`)}"
-            android:textColor="@color/white"
-            android:textSize="@dimen/medium_text_size"
-            app:layout_constraintStart_toStartOf="@id/tvName"
-            app:layout_constraintTop_toBottomOf="@id/tvName" />
+                <TextView
+                    android:id="@+id/id"
+                    android:layout_width="@dimen/no_dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{`ID: `.concat(data.id)}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/medium_text_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/phone"
-            android:layout_width="@dimen/no_dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding"
-            android:text="@{`phone: `.concat(data.phone!=null?data.phone:`No Phone`)}"
-            android:textColor="@color/white"
-            android:textSize="@dimen/medium_text_size"
-            app:layout_constraintStart_toStartOf="@id/tvEmail"
-            app:layout_constraintTop_toBottomOf="@id/tvEmail" />
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="@dimen/no_dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding"
+                    android:text="@{data.name!=null?`Name: `.concat(data.name):`No Name`}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/medium_text_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/id" />
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="@dimen/no_dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding"
+                    android:text="@{`email: `.concat(data.email!=null?data.email:`No Email`)}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/medium_text_size"
+                    app:layout_constraintStart_toStartOf="@id/tvName"
+                    app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="@dimen/no_dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding"
+                    android:text="@{`phone: `.concat(data.phone!=null?data.phone:`No Phone`)}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/medium_text_size"
+                    app:layout_constraintStart_toStartOf="@id/tvEmail"
+                    app:layout_constraintTop_toBottomOf="@id/tvEmail" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

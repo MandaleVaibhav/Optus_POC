@@ -30,10 +30,6 @@ class UserInformationFragment : Fragment(), UserInformationAdapter.OnItemClickLi
     private var dialog: AlertDialog? = null
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

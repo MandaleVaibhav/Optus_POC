@@ -4,14 +4,15 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
-import com.bumptech.glide.Glide
 import com.example.optuspoc.BR
 import com.example.optuspoc.R
 import com.example.optuspoc.databinding.PhotoItemBinding
 import com.example.optuspoc.model.ModelPhoto
+import com.example.optuspoc.utility.Constants
 
 class PhotoAlbumAdapter(
     var photoList: ArrayList<ModelPhoto>,
@@ -19,36 +20,48 @@ class PhotoAlbumAdapter(
     var listener: OnItemClickListener
 ) : RecyclerView.Adapter<PhotoAlbumAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): ViewHolder {
-        val binding: PhotoItemBinding =
-            DataBindingUtil.inflate(
-                LayoutInflater.from(context),
-                R.layout.photo_item,
-                parent,
-                false
-            )
+    /**
+     * this method is returning the view for each item in the list
+     */
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+
+        val binding: PhotoItemBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(context),
+            R.layout.photo_item,
+            parent,
+            false
+        )
         return ViewHolder(binding)
     }
 
     /**
      * This method for setting list to current list from another class
-     * @param PhotoList for to get updated list
+     * @param userList for to get updated list
      */
     fun setList(userList: ArrayList<ModelPhoto>) {
         this.photoList = userList
         notifyDataSetChanged()
     }
 
+    /**
+     * This method for set data to item.
+     */
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(photoList[position], listener, position)
+    }
 
+    /**
+     * @return the size of the list.
+     */
     override fun getItemCount(): Int {
         return photoList.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(photoList[position], listener, position)
+    /**
+     * Recycler View click listener interface
+     * */
+    interface OnItemClickListener {
+        fun onItemClick(item: ModelPhoto?, position: Int, view: ImageView)
     }
 
     /**
@@ -59,20 +72,20 @@ class PhotoAlbumAdapter(
         var imageView = itemView.findViewById(R.id.listImage) as ImageView
 
         fun bind(data: ModelPhoto, listener: OnItemClickListener, position: Int) {
+            ViewCompat.setTransitionName(imageView, Constants.transition)
             itemView.setOnClickListener {
                 listener.onItemClick(data, position, imageView)
             }
-/*            Glide.with(itemView)
-                .load(data.thumbnailUrl)
-                .placeholder(R.drawable.no_image)
-                .into(binding.listImage)*/
-
             binding.listImage.load(data.thumbnailUrl)
             {
                 crossfade(true)
                 placeholder(R.drawable.no_image)
                 error(R.drawable.no_image)
             }
+            /*Glide.with(itemView)
+                .load(data.thumbnailUrl)
+                .placeholder(R.drawable.no_image)
+                .into(binding.listImage)*/
             binding.setVariable(
                 BR.data,
                 data
@@ -81,12 +94,4 @@ class PhotoAlbumAdapter(
             binding.executePendingBindings()
         }
     }
-
-    /**
-     * Recycler View click listener interface
-     * */
-    interface OnItemClickListener {
-        fun onItemClick(item: ModelPhoto?, position: Int, view: ImageView)
-    }
-
 }

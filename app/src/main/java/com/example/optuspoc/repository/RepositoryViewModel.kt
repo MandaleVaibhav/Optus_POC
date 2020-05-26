@@ -8,11 +8,11 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RepositoryViewModel() {
+class RepositoryViewModel {
 
     /**
      * This method for getting list of objects from the server
-     * @param objCallback for get response to viewmodel
+     * @param objCallback for get response to View Model
      */
     fun retrieveUserInformationData(objCallback: ResponseCallBack<Any>) {
         val data: Call<ArrayList<ModelUserMaster>>? = ApiClient.build()?.getUserMasterList()

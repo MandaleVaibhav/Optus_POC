@@ -28,9 +28,6 @@ class AlbumInformationFragment : Fragment(), PhotoAlbumAdapter.OnItemClickListen
     private lateinit var builder: AlertDialog.Builder
     private lateinit var dialog: AlertDialog
     private lateinit var mDataViewModel: ViewModelAlbumInformation
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreateView(
@@ -109,8 +106,7 @@ class AlbumInformationFragment : Fragment(), PhotoAlbumAdapter.OnItemClickListen
             mAlbumDetailFragment.let { it },
             AlbumInformationFragment::class.java.name,
             view,
-            transitionName
-        )
+            transitionName)
     }
 
     private fun setupProgressDialog() {
