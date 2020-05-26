@@ -3,7 +3,6 @@ package com.example.optuspoc.viewModel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.example.optuspoc.callback.ResponseCallBack
 import com.example.optuspoc.model.ModelResponseHandle
 import com.example.optuspoc.model.ModelUserMaster
 import com.example.optuspoc.repository.RepositoryViewModel

@@ -1,4 +1,4 @@
-package com.example.optuspoc.callback
+package com.example.optuspoc.viewModel
 
 /*
 * @interface will help to handle retrofit callback*/

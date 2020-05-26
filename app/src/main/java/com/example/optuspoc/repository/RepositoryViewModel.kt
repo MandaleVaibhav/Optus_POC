@@ -1,6 +1,6 @@
 package com.example.optuspoc.repository
 
-import com.example.optuspoc.callback.ResponseCallBack
+import com.example.optuspoc.viewModel.ResponseCallBack
 import com.example.optuspoc.model.ModelPhoto
 import com.example.optuspoc.model.ModelUserMaster
 import com.example.optuspoc.networkLayer.ApiClient

@@ -43,8 +43,10 @@ class UserInformationFragment : Fragment(), UserInformationAdapter.OnItemClickLi
         if (activity?.let { isNetworkConnected(it) }!!) {
             showProgressDialog()
             mDataViewModel.getUserInformation()
-        } else
+        } else {
             activity!!.toast(getString(R.string.internet_not_connected))
+        }
+
 
         /**
          * Setting blank adapter for initialize
@@ -55,14 +57,16 @@ class UserInformationFragment : Fragment(), UserInformationAdapter.OnItemClickLi
 
         mDataViewModel.mModelResponseHandle.observe(viewLifecycleOwner, Observer {
             when (it.status) {
-                ResponseStatus.FAIL ->
+                ResponseStatus.FAIL -> {
                     activity!!.toast(getString(R.string.serviceFailureError))
+                }
             }
         })
         mDataViewModel.mUserInformationList.observe(viewLifecycleOwner, Observer {
             mAdapter.setList(it)
             hideProgressDialog()
         })
+
         return view
     }
 
