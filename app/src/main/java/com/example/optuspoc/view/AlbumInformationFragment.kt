@@ -169,7 +169,7 @@ class AlbumInformationFragment : Fragment(), PhotoAlbumAdapter.OnItemClickListen
                     ViewCompat.getTransitionName(it)!!
                 )
             }
-            fragmentTransaction.replace(R.id.fragment_container, newFragment, tag)
+            fragmentTransaction.replace(R.id.landing_fragment_container, newFragment, tag)
             fragmentTransaction.addToBackStack(tag)
             fragmentTransaction.commit()
         }

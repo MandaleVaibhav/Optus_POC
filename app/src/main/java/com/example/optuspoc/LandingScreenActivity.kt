@@ -25,7 +25,7 @@ class LandingScreenActivity : AppCompatActivity() {
         if (!fragmentPopped) {
             val fragmentTransaction =
                 fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.fragment_container, name, tag)
+            fragmentTransaction.replace(R.id.landing_fragment_container, name, tag)
             fragmentTransaction.addToBackStack(tag)
             fragmentTransaction.commit()
         }
