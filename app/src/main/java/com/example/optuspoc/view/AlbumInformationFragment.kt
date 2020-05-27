@@ -45,8 +45,10 @@ class AlbumInformationFragment : Fragment(), PhotoAlbumAdapter.OnItemClickListen
          * Setting blank adapter for initialize
          */
         mAdapter = context?.let { PhotoAlbumAdapter(ArrayList(), it, this) }!!
-        view.user_list.layoutManager = LinearLayoutManager(context)
-        view.user_list.adapter = mAdapter
+        view.tv_id_album_information.text =
+            getString(R.string.album_id).plus(mModelUserInformation?.id)
+        view.album_information_view.layoutManager = LinearLayoutManager(context)
+        view.album_information_view.adapter = mAdapter
         if (activity?.let { CheckNetworkConnection.isNetworkConnected(it) }!!) {
             showProgressDialog()
             mDataViewModel.getPhotosList()
@@ -55,8 +57,12 @@ class AlbumInformationFragment : Fragment(), PhotoAlbumAdapter.OnItemClickListen
 
         mDataViewModel.mModelResponseHandle.observe(viewLifecycleOwner, Observer {
             when (it.status) {
-                ResponseStatus.FAIL ->
+                ResponseStatus.FAIL -> {
+                    hideProgressDialog()
                     activity!!.toast(getString(R.string.serviceFailureError))
+                }
+
+
             }
         })
         mDataViewModel.mPhotosList.observe(viewLifecycleOwner, Observer {
@@ -106,7 +112,8 @@ class AlbumInformationFragment : Fragment(), PhotoAlbumAdapter.OnItemClickListen
             mAlbumDetailFragment.let { it },
             AlbumInformationFragment::class.java.name,
             view,
-            transitionName)
+            transitionName
+        )
     }
 
     private fun setupProgressDialog() {

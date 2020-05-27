@@ -2,10 +2,10 @@
     <string name="app_name">Optus POC</string>
     <string name="user_info">User Information</string>
     <string name="album_info">Album Information</string>
-    <string name="please_wait_this_may_take_a_moment">Sit Back! Loading may take a minute</string>
+    <string name="please_wait_this_may_take_a_moment">Sit Back! Loading may take a minute.</string>
     <string name="internet_not_connected">Please connect device to Internet</string>
     <string name="album_detail">Album Detail</string>
     <string name="serviceFailureError">Something went wrong</string>
-    <string name="album_id">Album ID : </string>
+    <string name="album_id">"Album ID : "</string>
     <string name="photo_id">"Photo ID : "</string>
 </resources>

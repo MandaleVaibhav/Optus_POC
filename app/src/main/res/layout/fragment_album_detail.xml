@@ -1,71 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.AlbumDetailFragment"
-    >
-    <androidx.constraintlayout.widget.ConstraintLayout
+    tools:context=".view.AlbumDetailFragment">
 
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="userDetail"
+            type="com.example.optuspoc.model.ModelPhoto" />
+    </data>
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/medium_padding">
+        android:layout_height="match_parent"
 
-        <TextView
-            android:id="@+id/albumId"
-            android:layout_width="@dimen/no_dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/medium_text_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        >
 
-        <TextView
-            android:id="@+id/photoId"
-            android:layout_width="@dimen/no_dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="@dimen/medium_text_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/albumId" />
+        <androidx.constraintlayout.widget.ConstraintLayout
 
-        <ImageView
-            android:id="@+id/albumImage"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/width_double_size"
-            android:scaleType="fitCenter"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/photoId"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/photoId" />
-
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="@dimen/medium_padding"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/size_200"
-            app:cardBackgroundColor="@color/blue"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/albumImage">
+            android:layout_height="wrap_content"
+            android:padding="@dimen/medium_padding">
 
             <TextView
-                android:id="@+id/imageInfo"
-                android:layout_width="match_parent"
+                android:id="@+id/albumId"
+                android:layout_width="@dimen/no_dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@{data.title!=null?data.title:`No Title`}"
-                android:textColor="@color/white"
-                android:textSize="@dimen/medium_text_size"
-                android:textStyle="bold" />
+                android:text="@{`Album ID: `.concat(userDetail.albumId)}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/large_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/photoId"
+                android:layout_width="@dimen/no_dp"
+                android:text="@{`Photo ID: `.concat(userDetail.id)}"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/large_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/albumId" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+            <ImageView
+                android:id="@+id/albumImage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/width_double_size"
+                android:layout_marginTop="@dimen/medium_padding"
+                android:scaleType="fitCenter"
+                app:loadDetailImage="@{userDetail}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/photoId"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/photoId" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/fixed_size_150"
+                android:layout_marginTop="@dimen/medium_padding"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/albumImage">
+
+                <TextView
+                    android:id="@+id/imageInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@{userDetail.title!=null?userDetail.title:`No Title availble`}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/large_text_size"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

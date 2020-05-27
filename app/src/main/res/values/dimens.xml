@@ -5,11 +5,13 @@
     <dimen name="small_padding">12dp</dimen>
     <dimen name="medium_padding">16dp</dimen>
     <dimen name="medium_text_size">16sp</dimen>
+    <dimen name="large_text_size">20sp</dimen>
     <dimen name="large_padding">20dp</dimen>
     <dimen name="extra_large_padding">24dp</dimen>
     <dimen name="width_size">150dp</dimen>
     <dimen name="width_double_size">300dp</dimen>
-    <dimen name="height_sizes">100dp</dimen>
-    <dimen name="size_200">200dp</dimen>
+    <dimen name="fixed_size_100">100dp</dimen>
+    <dimen name="fixed_size_150">150dp</dimen>
+    <dimen name="fixed_size_200">200dp</dimen>
     <dimen name="no_dp">0dp</dimen>
 </resources>

@@ -38,6 +38,7 @@
                 android:text="@{data.title!=null?data.title:`No Title`}"
                 android:textColor="@color/white"
                 android:textSize="@dimen/medium_text_size"
+                android:layout_marginLeft="@dimen/padding"
                 app:layout_constraintBottom_toBottomOf="@id/listImage"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/listImage"
@@ -46,8 +47,9 @@
             <ImageView
                 android:id="@+id/listImage"
                 android:layout_width="@dimen/width_size"
-                android:layout_height="@dimen/height_sizes"
-                android:scaleType="fitCenter"
+                android:layout_height="@dimen/fixed_size_100"
+                android:scaleType="centerCrop"
+                loadAlbumImage="@{data}"
                 app:layout_constraintStart_toEndOf="@id/imageTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

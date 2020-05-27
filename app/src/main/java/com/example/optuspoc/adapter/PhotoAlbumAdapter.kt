@@ -7,7 +7,6 @@ import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
 import com.example.optuspoc.BR
 import com.example.optuspoc.R
 import com.example.optuspoc.databinding.PhotoItemBinding
@@ -76,16 +75,6 @@ class PhotoAlbumAdapter(
             itemView.setOnClickListener {
                 listener.onItemClick(data, position, imageView)
             }
-            binding.listImage.load(data.thumbnailUrl)
-            {
-                crossfade(true)
-                placeholder(R.drawable.no_image)
-                error(R.drawable.no_image)
-            }
-            /*Glide.with(itemView)
-                .load(data.thumbnailUrl)
-                .placeholder(R.drawable.no_image)
-                .into(binding.listImage)*/
             binding.setVariable(
                 BR.data,
                 data

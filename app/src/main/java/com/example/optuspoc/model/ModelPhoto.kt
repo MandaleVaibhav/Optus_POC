@@ -2,6 +2,10 @@ package com.example.optuspoc.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
+import com.example.optuspoc.R
+import com.squareup.picasso.Picasso
 
 /*@class ModelPhoto will handle response of Photo information*/
 class ModelPhoto(
@@ -41,4 +45,10 @@ class ModelPhoto(
             return arrayOfNulls(size)
         }
     }
+
+}
+@BindingAdapter("loadDetailImage")
+fun loadDetailImage(view: ImageView, userDetails: ModelPhoto) {
+    Picasso.get().load(userDetails.url).placeholder(R.drawable.ic_icon_background).fit()
+        .error(R.drawable.defaultimage).into(view)
 }

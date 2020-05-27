@@ -52,12 +52,13 @@ class UserInformationFragment : Fragment(), UserInformationAdapter.OnItemClickLi
          * Setting blank adapter for initialize
          */
         mAdapter = context?.let { UserInformationAdapter(ArrayList(), it, this) }!!
-        view.user_list.layoutManager = LinearLayoutManager(context)
-        view.user_list.adapter = mAdapter
+        view.album_information_view.layoutManager = LinearLayoutManager(context)
+        view.album_information_view.adapter = mAdapter
 
         mDataViewModel.mModelResponseHandle.observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 ResponseStatus.FAIL -> {
+                    hideProgressDialog()
                     activity!!.toast(getString(R.string.serviceFailureError))
                 }
             }
@@ -70,6 +71,7 @@ class UserInformationFragment : Fragment(), UserInformationAdapter.OnItemClickLi
         return view
     }
 
+    /* show progress bar */
     private fun setupProgressDialog() {
         builder = AlertDialog.Builder(activity)
         builder.setCancelable(false)
@@ -86,6 +88,7 @@ class UserInformationFragment : Fragment(), UserInformationAdapter.OnItemClickLi
 
     }
 
+    /* hide progress dialog*/
     private fun hideProgressDialog() {
         dialog.let {
             if (dialog?.isShowing!!) {
@@ -105,6 +108,7 @@ class UserInformationFragment : Fragment(), UserInformationAdapter.OnItemClickLi
         }
     }
 
+    /*handling of on click item*/
     override fun onItemClick(item: ModelUserMaster?) {
         val bundle = Bundle()
         bundle.putParcelable(Constants.userInfo, item)

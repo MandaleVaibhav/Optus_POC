@@ -2,6 +2,10 @@ package com.example.optuspoc.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
+import com.example.optuspoc.R
+import com.squareup.picasso.Picasso
 
 /*Model class contains entire API response data model*/
 class ModelUserMaster(
@@ -12,7 +16,8 @@ class ModelUserMaster(
     var company: UserCompany?,
     var id: String?,
     var email: String?,
-    var username: String?
+    var username: String?,
+    var error: String = ""
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
@@ -26,8 +31,7 @@ class ModelUserMaster(
 
     )
 
-    override fun writeToParcel(dest: Parcel?, flags: Int) {
-
+    override fun writeToParcel(parcel: Parcel?, flags: Int) {
     }
 
     override fun describeContents() = 0
@@ -43,21 +47,15 @@ class ModelUserMaster(
     }
 }
 
-class UserAddress(
-    var zipcode: String,
-    var geo: UserGeo,
-    var suite: String,
-    var city: String,
-    var street: String
-)
 
-class UserCompany(
-    var bs: String,
-    var catchPhrase: String,
-    var name: String
-)
+@BindingAdapter("loadAlbumImage")
+fun loadAlbumImage(
+    view: ImageView,
+    albumInformationItem: ModelPhoto
+) { // This methods should not have any return type, = declaration would make it return that object declaration.
+    Picasso.get().load(albumInformationItem.thumbnailUrl).placeholder(R.drawable.ic_icon_background)
+        .fit().error(
+        R.drawable.defaultimage
+    ).into(view)
+}
 
-class UserGeo(
-    var lng: String,
-    var lat: String
-)
