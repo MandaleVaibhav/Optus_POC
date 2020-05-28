@@ -38,8 +38,8 @@ class RepositoryViewModel {
         })
     }
 
-    fun retrievePhotos(objCallback: ResponseCallBack<Any>) {
-        val data: Call<ArrayList<ModelPhoto>>? = ApiClient.build()?.getPhotosList()
+    fun retrievePhotos(objCallback: ResponseCallBack<Any>,id:String) {
+        val data: Call<ArrayList<ModelPhoto>>? = ApiClient.build()?.getPhotosList(id)
         val enqueue = data?.enqueue(object : Callback<ArrayList<ModelPhoto>> {
             override fun onResponse(
                 call: Call<ArrayList<ModelPhoto>>,

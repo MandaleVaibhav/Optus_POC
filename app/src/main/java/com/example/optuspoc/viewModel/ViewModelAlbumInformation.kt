@@ -15,9 +15,9 @@ class ViewModelAlbumInformation(@NotNull application: Application) : AndroidView
     private val repositoryViewModel: RepositoryViewModel by lazy { RepositoryViewModel() }
     val mPhotosList: MutableLiveData<ArrayList<ModelPhoto>> by lazy { MutableLiveData<ArrayList<ModelPhoto>>() }
     var mModelResponseHandle = MutableLiveData<ModelResponseHandle>()
-    fun getPhotosList() {
+    fun getPhotosList(id:String) {
         mModelResponseHandle.value = ModelResponseHandle(ResponseStatus.LOADING, "")
-        repositoryViewModel.retrievePhotos(this)
+        repositoryViewModel.retrievePhotos(this,id)
     }
 
     /**

@@ -27,7 +27,7 @@ class AlbumInformationTest {
     var mActivityTestRule = ActivityTestRule(LandingScreenActivity::class.java)
 
     @Test
-    fun userInformationTest2() {
+    fun userInformationTest() {
         Thread.sleep(5000)
         val recyclerView = Espresso.onView(
             Matchers.allOf(

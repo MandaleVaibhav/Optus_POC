@@ -5,6 +5,7 @@ import com.example.optuspoc.model.ModelUserMaster
 import com.example.optuspoc.utility.Constants
 import retrofit2.http.GET
 import retrofit2.Call
+import retrofit2.http.Query
 
 /*
 * @interface is used to declare network call methods.
@@ -21,5 +22,5 @@ interface ApiInterface {
      * This method is getting for list's of photos from server
      * */
     @GET(Constants.GET_ALBUM)
-    fun getPhotosList(): Call<ArrayList<ModelPhoto>>
+    fun getPhotosList(@Query("albumId") albumId: String): Call<ArrayList<ModelPhoto>>
 }

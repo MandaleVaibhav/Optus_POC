@@ -51,7 +51,7 @@ class AlbumInformationFragment : Fragment(), PhotoAlbumAdapter.OnItemClickListen
         view.album_information_view.adapter = mAdapter
         if (activity?.let { CheckNetworkConnection.isNetworkConnected(it) }!!) {
             showProgressDialog()
-            mDataViewModel.getPhotosList()
+            mModelUserInformation?.id?.let { mDataViewModel.getPhotosList(it) }
         } else
             activity!!.toast(getString(R.string.internet_not_connected))
 
@@ -67,34 +67,11 @@ class AlbumInformationFragment : Fragment(), PhotoAlbumAdapter.OnItemClickListen
         })
         mDataViewModel.mPhotosList.observe(viewLifecycleOwner, Observer {
             hideProgressDialog()
-            mAdapter.setList(filterList(it, mModelUserInformation))
+            mAdapter.setList(it)
         })
         return view
     }
 
-    /**
-     * get list of object matching with user ID
-     * */
-    private fun filterList(
-        photoList: ArrayList<ModelPhoto>,
-        mModelUserInformation: ModelUserMaster?
-    ): ArrayList<ModelPhoto> {
-        var mAdapterPhotoList = ArrayList<ModelPhoto>()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-
-            return photoList.stream()
-                .filter { p -> p.albumId == mModelUserInformation?.id }
-                .map { pm -> pm }
-                .collect(Collectors.toList()) as ArrayList<ModelPhoto>
-        } else {
-            for (list in photoList) {
-                if (list.albumId == mModelUserInformation?.id) {
-                    mAdapterPhotoList.add(list)
-                }
-            }
-        }
-        return mAdapterPhotoList
-    }
 
     /**
      *Recycle item click listener
