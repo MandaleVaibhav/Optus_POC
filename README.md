@@ -6,7 +6,7 @@ Architecture used MVVM
 Language used - Kotlin with features like
 
  - Inline function
- - Extention function
+ - Extension function
  - Lambda expression
  - kotlin Filter
  - Companion object
