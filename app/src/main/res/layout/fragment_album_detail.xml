@@ -65,6 +65,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/fixed_size_150"
                 android:layout_marginTop="@dimen/medium_padding"
+                android:layout_marginRight="@dimen/small_padding"
+                android:layout_marginLeft="@dimen/small_padding"
                 app:cardBackgroundColor="@color/colorPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -72,6 +74,8 @@
                 app:layout_constraintTop_toBottomOf="@id/albumImage">
 
                 <TextView
+                    android:paddingRight="@dimen/padding"
+                    android:paddingLeft="@dimen/padding"
                     android:id="@+id/imageInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
