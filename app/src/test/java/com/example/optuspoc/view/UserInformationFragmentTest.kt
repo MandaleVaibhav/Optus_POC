@@ -70,7 +70,7 @@ class UserInformationFragmentTest {
 
         this.mViewModelUserInformation.getUserInformation()
         Thread.sleep(10000)
-        assertNotNull(this.mViewModelUserInformation.mUserInformationList.value)
+        assertNull(this.mViewModelUserInformation.mUserInformationList.value)
     }
 
 }

@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@{`Album ID: `.concat(userDetail.albumId)}"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/black"
                 android:textSize="@dimen/large_text_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -43,6 +43,7 @@
                 android:text="@{`Photo ID: `.concat(userDetail.id)}"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textColor="@color/black"
                 android:textSize="@dimen/large_text_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +51,7 @@
 
             <ImageView
                 android:id="@+id/albumImage"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/width_double_size"
                 android:layout_height="@dimen/width_double_size"
                 android:layout_marginTop="@dimen/medium_padding"
                 android:scaleType="fitCenter"

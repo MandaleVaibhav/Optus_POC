@@ -26,7 +26,8 @@ object ApiClient {
 
         val httpClient: OkHttpClient.Builder = OkHttpClient.Builder()
         httpClient.addInterceptor(interceptor())
-        httpClient.connectTimeout(30,TimeUnit.SECONDS)
+        httpClient.readTimeout(60,TimeUnit.SECONDS)
+        httpClient.connectTimeout(60,TimeUnit.SECONDS)
 
         val retrofit: Retrofit = builder.client(httpClient.build()).build()
         servicesApiInterface = retrofit.create(

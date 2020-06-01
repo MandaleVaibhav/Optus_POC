@@ -65,7 +65,7 @@ class AlbumInformationFragmentTest {
 
         this.mViewModelAlbumInformation.getPhotosList("1")
         Thread.sleep(10000)
-        assertNotNull(this.mViewModelAlbumInformation.mPhotosList.value)
+        assertNull(this.mViewModelAlbumInformation.mPhotosList.value)
 
     }
 

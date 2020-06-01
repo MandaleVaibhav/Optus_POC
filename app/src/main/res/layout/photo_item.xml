@@ -47,7 +47,7 @@
             <ImageView
                 android:id="@+id/listImage"
                 android:layout_width="@dimen/width_size"
-                android:layout_height="@dimen/fixed_size_100"
+                android:layout_height="@dimen/width_size"
                 android:scaleType="centerCrop"
                 loadAlbumImage="@{data}"
                 app:layout_constraintStart_toEndOf="@id/imageTitle"

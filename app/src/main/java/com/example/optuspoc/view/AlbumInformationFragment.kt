@@ -37,7 +37,6 @@ class AlbumInformationFragment : Fragment(), PhotoAlbumAdapter.OnItemClickListen
         var view = inflater.inflate(R.layout.fragment_album_information, container, false)
         mDataViewModel = ViewModelProvider(this).get(ViewModelAlbumInformation::class.java)
         setupProgressDialog()
-        activity?.title = getString(R.string.album_info)
         var bundle = arguments
         var mModelUserInformation: ModelUserMaster? = bundle?.getParcelable(Constants.userInfo)
 

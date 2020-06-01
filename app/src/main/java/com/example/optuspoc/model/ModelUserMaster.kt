@@ -32,6 +32,11 @@ class ModelUserMaster(
     )
 
     override fun writeToParcel(parcel: Parcel?, flags: Int) {
+        parcel?.writeString(website)
+        parcel?.writeString(phone)
+        parcel?.writeString(id)
+        parcel?.writeString(email)
+        parcel?.writeString(username)
     }
 
     override fun describeContents() = 0

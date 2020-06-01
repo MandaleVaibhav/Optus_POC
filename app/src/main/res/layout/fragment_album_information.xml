@@ -10,9 +10,10 @@
         android:id="@+id/tv_id_album_information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:gravity="center"
-        android:textColor="@color/blue"
         android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
         android:textSize="@dimen/large_text_size"
         app:layout_constraintTop_toTopOf="parent" />
 
